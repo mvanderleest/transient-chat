@@ -13,7 +13,8 @@ defmodule TransientChat.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: TransientChat.PubSub},
       # Start the Endpoint (http/https)
-      TransientChatWeb.Endpoint
+      TransientChatWeb.Endpoint,
+      TransientChatWeb.Presence
       # Start a worker by calling: TransientChat.Worker.start_link(arg)
       # {TransientChat.Worker, arg}
     ]

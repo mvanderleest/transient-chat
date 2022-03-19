@@ -1,0 +1,20 @@
+<div class="">
+  <p>Currently chatting in <strong><%= @room_id %></strong> as <strong><%= @username %></strong></p>
+
+  <div id="chat-container" class="flex mt-4 space-x-4 justify-between">
+    <div id="chat-messages" class="border p-4 flex-grow" phx-update="append">
+      <%= for message <- @messages do %>
+        <%= display_message(message) %>
+      <% end %>
+    </div>
+    <div id="user-list" class="text-right p-4">
+      <h3 class="text-xl">Users online</h3>
+      <%= for user <- @user_list do %>
+      <p class="text-sm"><%= user %></p>
+      <% end %>
+    </div>
+  </div>
+  <%= f = form_for :chat, "#", id: "chat-form", class: "mt-4", phx_submit: :submit_message, phx_change: :form_update %>
+    <%= text_input f, :message, value: @message, placeholder: "Enter your message...", class: "w-full border-gray-200" %>
+  </form>
+</div>

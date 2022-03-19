@@ -47,7 +47,8 @@ defmodule TransientChat.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
-      {:mnemonic_slugs, "~> 0.0.3"}
+      {:mnemonic_slugs, "~> 0.0.3"},
+      {:uuid, "~> 1.1.8"}
     ]
   end
 
