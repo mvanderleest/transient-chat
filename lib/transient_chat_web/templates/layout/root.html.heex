@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tag() %>
-    <%= live_title_tag assigns[:page_title] || "TransientChat", suffix: " · Phoenix Framework" %>
+    <%= live_title_tag assigns[:page_title] || "Transient Chat", suffix: " · Phoenix Framework" %>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
@@ -13,7 +14,7 @@
     <header class="max-w-2xl mx-auto text-center">
       <section class="pt-16 px-4 sm:pt-20 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-extrabold text-white sm:text-4xl">
-          <span class="block">Transient Chat</span>
+          <span class="block"><%= link("Transient Chat", to: "/") %></span>
         </h1>
       </section>
     </header>

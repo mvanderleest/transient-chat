@@ -19,6 +19,7 @@ defmodule TransientChatWeb.RoomLive do
       message: "",
       messages: [],
       user_list: [],
+      users_count: 0,
       temporary_assigns: [messages: []]
     )}
   end
@@ -56,12 +57,15 @@ defmodule TransientChatWeb.RoomLive do
       TransientChatWeb.Presence.list(socket.assigns.topic)
       |> Map.keys()
 
-    {:noreply, assign(socket, messages: join_messages ++ leave_messages, user_list: user_list)}
+    users_count =
+      user_list
+      |> length()
+
+    {:noreply, assign(socket, messages: join_messages ++ leave_messages, user_list: user_list, users_count: users_count)}
   end
 
   def display_message(%{type: :system, uuid: uuid, content: content}) do
     ~E"""
-      <p></p>
       <li id="<%= uuid  %>">
         <div class="flex space-x-3">
           <div>
@@ -80,10 +84,7 @@ defmodule TransientChatWeb.RoomLive do
         <div class="flex space-x-3">
           <div>
             <div class="text-sm">
-              <p class="font-medium text-gray-900"><%= username %></p>
-            </div>
-            <div class="mt-1 text-sm text-gray-700">
-              <%= content %>
+              <p><span class="font-medium text-gray-900"><%= username %></span>: <span class="text-gray-700"><%= content %></span></p>
             </div>
           </div>
         </div>
