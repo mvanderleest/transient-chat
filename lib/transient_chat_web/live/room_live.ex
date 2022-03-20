@@ -61,13 +61,33 @@ defmodule TransientChatWeb.RoomLive do
 
   def display_message(%{type: :system, uuid: uuid, content: content}) do
     ~E"""
-      <p id="<%= uuid  %>"><em><%= content %></em></p>
+      <p></p>
+      <li id="<%= uuid  %>">
+        <div class="flex space-x-3">
+          <div>
+            <div class="mt-1 text-sm text-gray-700">
+              <p><em><%= content %></em></p>
+            </div>
+          </div>
+        </div>
+      </li>
     """
   end
 
   def display_message(%{uuid: uuid, content: content, username: username}) do
     ~E"""
-      <p id="<%= uuid  %>"><strong><%= username %>: </strong><%= content %></p>
+      <li id="<%= uuid  %>">
+        <div class="flex space-x-3">
+          <div>
+            <div class="text-sm">
+              <p class="font-medium text-gray-900"><%= username %></p>
+            </div>
+            <div class="mt-1 text-sm text-gray-700">
+              <%= content %>
+            </div>
+          </div>
+        </div>
+      </li>
     """
   end
 end

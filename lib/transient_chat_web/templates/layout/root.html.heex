@@ -9,10 +9,12 @@
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
-  <body>
-    <header>
-      <section>
-        <h1 class="text-5xl">Transient Chat</h1>
+  <body class="bg-indigo-700">
+    <header class="max-w-2xl mx-auto text-center">
+      <section class="pt-16 px-4 sm:pt-20 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-extrabold text-white sm:text-4xl">
+          <span class="block">Transient Chat</span>
+        </h1>
       </section>
     </header>
     <%= @inner_content %>
