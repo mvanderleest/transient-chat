@@ -12,6 +12,7 @@ import Config
 config :transient_chat, TransientChatWeb.Endpoint,
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   url: [host: "transient-chat-prod.gigalixirapp.com", port: 443],
+  check_origin: ["transient-chat-prod.gigalixirapp.com"],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
